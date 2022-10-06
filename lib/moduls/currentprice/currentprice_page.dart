@@ -6,6 +6,7 @@ import 'package:rupeeapp/theme/app_string.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../theme/app_img.dart';
+import '../../utils/size_utils/size_utils.dart';
 
 class CurrentPrice extends StatefulWidget {
   CurrentPrice({Key? key}) : super(key: key);
@@ -31,8 +32,8 @@ class _CurrentPriceState extends State<CurrentPrice> {
                 children: [
                   Image.asset(
                     AppImg.rupeeImg,
-                    height: 10.h,
-                    width: 15.w,
+                    height: SizeUtils.verticalBlockSize * 10,
+                    width: SizeUtils.horizontalBlockSize * 12,
                   ),
                   Text(AppString.appBarcurrentpriceInfo),
                 ],

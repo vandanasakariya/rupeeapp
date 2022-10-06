@@ -7,6 +7,7 @@ import 'package:rupeeapp/theme/app_img.dart';
 import 'package:rupeeapp/theme/app_string.dart';
 import 'package:rupeeapp/utils/navigation/navoigation.dart';
 import 'package:rupeeapp/utils/navigation/routes.dart';
+import 'package:rupeeapp/utils/size_utils/size_utils.dart';
 import 'package:rupeeapp/widget/customcontainer.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
@@ -26,8 +27,8 @@ class WelcomePage extends StatelessWidget {
           children: [
             Image.asset(
               AppImg.rupeeImg,
-              height: 10.h,
-              width: 15.w,
+              height: SizeUtils.verticalBlockSize * 10,
+              width: SizeUtils.horizontalBlockSize * 12,
             ),
             Text(AppString.appBarRupeeNm),
           ],
@@ -38,7 +39,9 @@ class WelcomePage extends StatelessWidget {
           exit(0);
         },
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 3.w),
+          padding: EdgeInsets.symmetric(
+              vertical: SizeUtils.verticalBlockSize * 2,
+              horizontal: SizeUtils.horizontalBlockSize * 5),
           child: Column(
             children: [
               Spacer(),
@@ -51,19 +54,23 @@ class WelcomePage extends StatelessWidget {
                     },
                     child: CustomContainer(
                       alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.w, vertical: 2.h),
-                        child: Column(
-                          children: [
-                            Lottie.asset("asset/lottieimg/info.json",
-                                width: 20.w),
-                            Text(AppString.rupeeInfo,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: SizeUtils.horizontalBlockSize * 2),
+                            child: Lottie.asset("asset/lottieimg/info.json",
+                                width: SizeUtils.verticalBlockSize * 10),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeUtils.horizontalBlockSize * 2),
+                            child: Text(AppString.rupeeInfo,
                                 style: TextStyle(
                                   color: Colors.white,
                                 )),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -73,19 +80,27 @@ class WelcomePage extends StatelessWidget {
                     },
                     child: CustomContainer(
                       alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.w, vertical: 2.h),
-                        child: Column(
-                          children: [
-                            Lottie.asset("asset/lottieimg/price.json",
-                                width: 35.w, height: 10.h),
-                            Text(AppString.currentPrice,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: SizeUtils.horizontalBlockSize * 2),
+                            child: Lottie.asset(
+                              "asset/lottieimg/price.json",
+                              width: SizeUtils.verticalBlockSize * 10,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeUtils.horizontalBlockSize * 2),
+                            child: Text(
+                              AppString.currentPrice,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -103,26 +118,23 @@ class WelcomePage extends StatelessWidget {
                         context: context,
                         builder: (context) => AlertDialog(
                           content: Container(
-                            height: 20.h,
-                            width: 20.w,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.w),
-                              child: RatingBar.builder(
-                                initialRating: 2,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                allowHalfRating: false,
-                                itemCount: 5,
-                                // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                                itemBuilder: (context, _) => Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                  size: 5.w,
-                                ),
-                                onRatingUpdate: (rating) {
-                                  print(rating);
-                                },
+                            height: SizeUtils.verticalBlockSize * 20,
+                            width: SizeUtils.horizontalBlockSize * 10,
+                            child: RatingBar.builder(
+                              initialRating: 2,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: false,
+                              itemCount: 5,
+                              // itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: SizeUtils.horizontalBlockSize * 2,
                               ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
                             ),
                           ),
                         ),
@@ -130,19 +142,24 @@ class WelcomePage extends StatelessWidget {
                     },
                     child: CustomContainer(
                       alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.w, vertical: 2.h),
-                        child: Column(
-                          children: [
-                            Lottie.asset("asset/lottieimg/rate.json",
-                                width: 35.w, height: 10.h),
-                            Text(AppString.rate,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: SizeUtils.horizontalBlockSize * 2),
+                            child: Lottie.asset("asset/lottieimg/rate.json",
+                                // width: SizeUtils.horizontalBlockSize * 10,
+                                height: SizeUtils.verticalBlockSize * 10),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeUtils.horizontalBlockSize * 2),
+                            child: Text(AppString.rate,
                                 style: TextStyle(
                                   color: Colors.white,
                                 )),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -152,19 +169,27 @@ class WelcomePage extends StatelessWidget {
                     },
                     child: CustomContainer(
                       alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.w, vertical: 2.h),
-                        child: Column(
-                          children: [
-                            Lottie.asset("asset/lottieimg/share.json",
-                                width: 35.w, height: 10.h),
-                            Text(AppString.share,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: SizeUtils.horizontalBlockSize * 2),
+                            child: Lottie.asset(
+                              "asset/lottieimg/share.json",
+                              height: SizeUtils.verticalBlockSize * 10,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: SizeUtils.horizontalBlockSize * 2),
+                            child: Text(
+                              AppString.share,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

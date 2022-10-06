@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rupeeapp/utils/size_utils/size_utils.dart';
 import 'package:sizer/sizer.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -24,8 +25,8 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
-      width: width,
+      height: SizeUtils.verticalBlockSize * 16,
+      width: SizeUtils.horizontalBlockSize * 43,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3.h),
         boxShadow: [

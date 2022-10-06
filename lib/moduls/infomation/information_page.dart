@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rupeeapp/theme/app_img.dart';
 import 'package:rupeeapp/theme/app_string.dart';
+import 'package:rupeeapp/utils/size_utils/size_utils.dart';
 import 'package:sizer/sizer.dart';
 
 class RupeeInformation extends StatelessWidget {
@@ -19,8 +20,8 @@ class RupeeInformation extends StatelessWidget {
             children: [
               Image.asset(
                 AppImg.rupeeImg,
-                height: 10.h,
-                width: 15.w,
+                height: SizeUtils.verticalBlockSize * 10,
+                width: SizeUtils.horizontalBlockSize * 12,
               ),
               const Text(
                 AppString.appBarRupeeInformation,
@@ -71,13 +72,15 @@ class RupeeInformation extends StatelessWidget {
                   )),
               SizedBox(
                 width: 70.w,
-                child: AutoSizeText(text,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.sp,
-                      // overflow: TextOverflow.ellipsis,
-                    )),
+                child: AutoSizeText(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.sp,
+                    // overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
               SizedBox(
                 width: 70.w,
@@ -107,7 +110,7 @@ class RupeeInformation extends StatelessWidget {
 
   _headerContainer() {
     return Container(
-      height: 40.h,
+      height: SizeUtils.horizontalBlockSize * 65,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.blue,
@@ -120,7 +123,7 @@ class RupeeInformation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 15.h,
+            height: SizeUtils.verticalBlockSize * 15,
           ),
           Text(AppString.rupee,
               style: TextStyle(
@@ -148,15 +151,17 @@ class RupeeInformation extends StatelessWidget {
   _cryptoContainer() {
     return Container(
       color: Colors.blue[900],
-      height: 800.h,
-      width: 100.w,
+      height: SizeUtils.verticalBlockSize * 800,
+      //width: SizeUtils.horizontalBlockSize * 200,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 4.w),
+        padding:
+            EdgeInsets.symmetric(horizontal: SizeUtils.verticalBlockSize * 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 3.h),
+              padding: EdgeInsets.symmetric(
+                  vertical: SizeUtils.verticalBlockSize * 3),
               child: Text(AppString.whycripto,
                   style: TextStyle(
                       color: Colors.white,
@@ -166,24 +171,24 @@ class RupeeInformation extends StatelessWidget {
             ),
             _commonRow(
               img: AppImg.brand,
-              height: 15.h,
-              width: 20.w,
+              /* height: SizeUtils.verticalBlockSize * 30,
+              width: SizeUtils.horizontalBlockSize * 60,*/
               text: AppString.rupeeAsBrand,
               subtext: AppString.acrossAsia,
               header: AppString.brandRecognition,
             ),
             _commonRow(
               img: AppImg.peopleImg,
-              height: 15.h,
-              width: 20.w,
+              /*height: 15.h,
+              width: 20.w,*/
               text: AppString.rupeeHasRich,
               subtext: AppString.symbolOfTrand,
               header: AppString.richHistory,
             ),
             _commonRow(
               img: AppImg.dimondImg,
-              height: 15.h,
-              width: 20.w,
+              /* height: 15.h,
+              width: 20.w,*/
               text: AppString.rupeeTeam,
               subtext: AppString.commerceSolutions,
               header: AppString.eCommerce,
@@ -194,16 +199,16 @@ class RupeeInformation extends StatelessWidget {
             ),
             _commonRow(
               img: AppImg.brand,
-              height: 15.h,
-              width: 20.w,
+              /* height: 15.h,
+              width: 20.w,*/
               text: AppString.rupeeBlockChain,
               subtext: AppString.platForm,
               header: AppString.decentralizedPlatform,
             ),
             _commonRow(
               img: AppImg.peopleImg,
-              height: 15.h,
-              width: 20.w,
+              /*height: 15.h,
+              width: 20.w,*/
               text: AppString.rupeeWasBuilt,
               subtext: AppString.peopleFor,
               header: AppString.community,
@@ -211,8 +216,8 @@ class RupeeInformation extends StatelessWidget {
             ),
             _commonRow(
               img: AppImg.dimondImg,
-              height: 15.h,
-              width: 20.w,
+              /*  height: 15.h,
+              width: 20.w,*/
               text: AppString.rupeeRun,
               subtext: AppString.theNext,
               header: AppString.rewardsMechanism,
@@ -221,22 +226,26 @@ class RupeeInformation extends StatelessWidget {
             Divider(
               color: Colors.black,
               thickness: 2,
-              height: 12.h,
+              height: SizeUtils.horizontalBlockSize * 5,
             ),
-            Text(AppString.theRupeeMission,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.sp,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold)),
-            SizedBox(height: 3.h),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  vertical: SizeUtils.horizontalBlockSize * 5),
+              child: Text(AppString.theRupeeMission,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.sp,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(height: SizeUtils.horizontalBlockSize * 2),
             Image.asset(
               AppImg.rupeeMissionImg,
-              height: 50.h,
+              height: SizeUtils.verticalBlockSize * 50,
               //width: 200.w,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(20.0),
               child: Text(AppString.rupeeCriptoCurrency,
                   style: TextStyle(
                     color: Colors.white,
@@ -244,48 +253,52 @@ class RupeeInformation extends StatelessWidget {
                   )),
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 3,
             ),
             _commonRows(
               text1: AppString.int1,
               text2: AppString.string1,
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRows(
               text1: AppString.int2,
               text2: AppString.string2,
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRows(
               text1: AppString.int3,
               text2: AppString.string3,
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRows(
               text1: AppString.int3,
               text2: AppString.string3,
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRows(
               text1: AppString.int4,
               text2: AppString.string4,
             ),
             SizedBox(
-              height: 4.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRows(
               text1: AppString.int5,
               text2: AppString.string5,
             ),
-            Divider(thickness: 2, color: Colors.black, height: 15.h),
+            Divider(
+              thickness: 2,
+              color: Colors.black,
+              height: SizeUtils.verticalBlockSize * 10,
+            ),
             Text(AppString.technicalInfo,
                 style: TextStyle(
                     color: Colors.white,
@@ -293,50 +306,50 @@ class RupeeInformation extends StatelessWidget {
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold)),
             SizedBox(
-              height: 7.h,
+              height: SizeUtils.verticalBlockSize * 6,
             ),
             _commonRowsn(text: AppString.algorithm, text2: AppString.pos),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(
                 text: AppString.confirMations, text2: AppString.blocks),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(
                 text: AppString.circulatingSupply, text2: AppString.million),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(text: AppString.blockReward, text2: AppString.rUP50),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(text: AppString.rpcPort, text2: AppString.int8517),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(text: AppString.p2PPort, text2: AppString.int8518),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(
                 text: AppString.maturity, text2: AppString.stakingHours),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(text: AppString.blockTarget, text2: AppString.minutes),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             _commonRowsn(text: AppString.mnPOSReward, text2: AppString.mnPos),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             Divider(thickness: 2, color: Colors.black),
             SizedBox(
-              height: 5.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             Text(
               AppString.roadMap,
@@ -347,12 +360,12 @@ class RupeeInformation extends StatelessWidget {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 6.h,
+              height: SizeUtils.verticalBlockSize * 5,
             ),
             Image.asset(
               AppImg.rodMap1,
-              height: 300.h,
-              width: 100.w,
+              height: SizeUtils.horizontalBlockSize * 600,
+              // width: SizeUtils.horizontalBlockSize * 300,
             ),
           ],
         ),
@@ -377,7 +390,7 @@ class RupeeInformation extends StatelessWidget {
               fontWeight: FontWeight.bold),
         ),
         SizedBox(
-          width: 75.w,
+          width: SizeUtils.verticalBlockSize * 35,
           child: AutoSizeText(
             text2,
             style: TextStyle(
@@ -400,7 +413,7 @@ class RupeeInformation extends StatelessWidget {
       children: [
         CircleAvatar(minRadius: 1.w, backgroundColor: Colors.blue.shade100),
         SizedBox(
-          width: 30.w,
+          width: SizeUtils.verticalBlockSize * 15,
         ),
         Column(
           children: [
