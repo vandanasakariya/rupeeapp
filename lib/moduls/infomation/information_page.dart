@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rupeeapp/ad_manager/banner_ad.dart';
 import 'package:rupeeapp/theme/app_img.dart';
 import 'package:rupeeapp/theme/app_string.dart';
 import 'package:rupeeapp/utils/size_utils/size_utils.dart';
@@ -36,6 +37,9 @@ class RupeeInformation extends StatelessWidget {
               _cryptoContainer(),
             ],
           ),
+        ),
+        bottomNavigationBar: Container(
+          child: BannerAds(),
         ),
       ),
     );

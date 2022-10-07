@@ -93,7 +93,7 @@ class AdController extends GetxController {
   void adsFunction() async {
     ad = BannerAd(
       size: const AdSize(height: 500, width: 360),
-      adUnitId: "ca-app-pub-3940256099942544/6300978111",
+      adUnitId: "ca-app-pub-3481984670024764/8191358047",
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           // BannerAds.isLoaded = true;
