@@ -151,11 +151,12 @@ class RupeeInformation extends StatelessWidget {
   _cryptoContainer() {
     return Container(
       color: Colors.blue[900],
-      height: SizeUtils.verticalBlockSize * 800,
+      //height: SizeUtils.verticalBlockSize * 850,
       //width: SizeUtils.horizontalBlockSize * 200,
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: SizeUtils.verticalBlockSize * 2),
+        padding: EdgeInsets.symmetric(
+            horizontal: SizeUtils.verticalBlockSize * 2,
+            vertical: SizeUtils.horizontalBlockSize * 6),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

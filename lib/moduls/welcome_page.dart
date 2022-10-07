@@ -2,7 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rupeeapp/ad_manager/ad_controller.dart';
 import 'package:rupeeapp/theme/app_img.dart';
 import 'package:rupeeapp/theme/app_string.dart';
 import 'package:rupeeapp/utils/navigation/navoigation.dart';
@@ -13,8 +16,8 @@ import 'package:share_plus/share_plus.dart';
 import 'package:sizer/sizer.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
-
+  WelcomePage({Key? key}) : super(key: key);
+  final AdController adController = Get.put(AdController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +47,17 @@ class WelcomePage extends StatelessWidget {
               horizontal: SizeUtils.horizontalBlockSize * 5),
           child: Column(
             children: [
+              Container(
+                height: adController.ad == null
+                    ? 0
+                    : SizeUtils.verticalBlockSize * 30,
+                alignment: Alignment.center,
+                child: adController.ad == null
+                    ? const SizedBox()
+                    : AdWidget(
+                        ad: adController.ad!,
+                      ),
+              ),
               Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -65,10 +79,12 @@ class WelcomePage extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: SizeUtils.horizontalBlockSize * 2),
-                            child: Text(AppString.rupeeInfo,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                )),
+                            child: Text(
+                              AppString.rupeeInfo,
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -194,6 +210,9 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: SizeUtils.verticalBlockSize * 3,
               ),
             ],
           ),
