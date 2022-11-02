@@ -38,10 +38,9 @@ class RupeeInformation extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: Container(
-          child: BannerAds(),
-        ),
+        bottomSheet: Container(child: BannerAds()),
       ),
+
     );
   }
 

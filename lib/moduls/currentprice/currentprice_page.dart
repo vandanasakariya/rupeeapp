@@ -84,7 +84,7 @@ class _CurrentPriceState extends State<CurrentPrice> {
             )
           ],
         ),
-        bottomNavigationBar: Container(child: BannerAds(),),
+        bottomSheet: Container(child: BannerAds(),),
       ),
     );
   }
